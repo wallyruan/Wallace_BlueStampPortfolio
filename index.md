@@ -1,5 +1,5 @@
 # WALL-Y - your dog's bff
-"WALL-Y," which (the name) is inspired by Disney's "WALL-E" and my nick name "Wally," is a robot that moniters and takes care of my dog. It autonomously feeds him treats hourly with the help of the built in mic.
+"WALL-Y," which (the name) is inspired by Disney's "WALL-E" and my nick name "Wally," is a robot that moniters and takes care of my dog. It autonomously feeds him treats hourly with the help of the built in mic and speaker.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
