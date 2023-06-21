@@ -58,14 +58,12 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Item Name | What the item is used for | $Price | Link |
 |ELEGOO Smart Robot|Base Kit|80$| <a href="https://www.amazon.com/ELEGOO-Tracking-Ultrasonic-Intelligent-Educational/dp/B07KPZ8RSZ/ref=sr_1_6?crid=3ITT6Z3NJ6QQ6&keywords=elegoo+kit&qid=1684951773&sprefix=elegoo+ki%2Caps%2C164&sr=8-6"> Link </a> |
 | Arduino | Extra for Sensors | 17$ | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-|:--:|:--:|:--:|:--:|
-|:--:|:--:|:--:|:--:|
-|:--:|:--:|:--:|:--:|
-|:--:|:--:|:--:|:--:|
-|:--:|:--:|:--:|:--:|
-|:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-|:--:|:--:|:--:|:--:|
+| SD Card reader module | Read/write files | 6.5$ | <a href="https://www.amazon.com/Maxmoral-Storage-Expansion-Interface-Adapter/dp/B07S3F4BLN/ref=sr_1_2?crid=1IWTVZPIHUDI2&keywords=Modulo+Micro+SD+card+mini+TF+card+reader+modulo+SPI+%28Arduino+Compatibile%29&qid=1686860460&sprefix=modulo+micro+sd+card+mini+tf+card+reader+modulo+spi+arduino+compatibile+%2Caps%2C172&sr=8-2"> Link </a> |
+| Sound Sensor Mic | Detects barks | 6$ | <a href="https://www.amazon.com/DAOKI-Sensitivity-Microphone-Detection-Arduino/dp/B00XT0PH10/ref=sr_1_1?crid=3FFUV27XYCKVH&keywords=arduino+sound+sensor&qid=1686860529&sprefix=arduino+sound+senso%2Caps%2C159&sr=8-1"> Link </a> |
+| SanDisk Card | Records data | 9$ | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/SanDisk-Ultra-microSDHC-Memory-Adapter/dp/B08GYBBBBH/ref=sr_1_2?crid=1JDK0WFWN9DDK&keywords=micro+sd&qid=1686860591&sprefix=micro+sd%2Caps%2C164&sr=8-2)"> Link </a> |
+| Card Reader | Reads data for computer | 14$ | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/SmartQ-C368-Multi-Card-Compatible-Supports/dp/B06Y1G18KS/ref=sr_1_3?crid=2H0RQ24IH63YE&keywords=mini+sd+card+adapter&qid=1686860651&sprefix=mini+sd+card+adapte%2Caps%2C171&sr=8-3)"> Link </a> |
+| Breadboard | Builds temporary circuits | 6.5$ | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/Pcs-MCIGICM-Points-Solderless-Breadboard/dp/B07PCJP9DY/ref=asc_df_B07PCJP9DY/?tag=hyprod-20&linkCode=df0&hvadid=343554957764&hvpos=&hvnetw=g&hvrand=8014181970968848295&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031977&hvtargid=pla-781638113882&psc=1&tag=&ref=&adgrpid=75942660944&hvpone=&hvptwo=&hvadid=343554957764&hvpos=&hvnetw=g&hvrand=8014181970968848295&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031977&hvtargid=pla-781638113882)"> Link </a> |
+| Extra micro servo | Produces torque and velocity | 9$ | <a href="https://www.amazon.com/Micro-Servos-Helicopter-Airplane-Controls/dp/B07MLR1498/ref=sr_1_7?crid=M3UTWSUM0J38&keywords=servo&qid=1687208050&sprefix=serv%2Caps%2C135&sr=8-7"> Link </a> |
 
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
