@@ -33,7 +33,7 @@ My project is the table top robot. Why the table top robot? Well after the modif
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
-# Code
+# Code (for the dog bark detection)
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
@@ -42,11 +42,11 @@ Here's where you'll put your code. The syntax below places it into a block of co
 #include "TMRpcm.h"
 #include "string.h"
 
-//SD READER VARIABLES
+// SD reader variables
 File main_file;
-//String MAIN_LOG_FILE = "log.txt";
+// String MAIN_LOG_FILE = "log.txt";
 
-//MICROPHONE SENSOR VARIABLES
+// Microphone sensor variables
 #define sensorPin A0
 unsigned long lastEvent = 0;
 
@@ -55,9 +55,9 @@ unsigned long millisCurrent;
 unsigned long millisLast = 0;
 unsigned long millisElapsed = 0;
 
-int sampleBufferValue = 0;    //amount of ones in the SAMPLE_TIME
+int sampleBufferValue = 0;    
 
-//REAL TIME CLOCK VARIABLES
+// Real time clock variables
 #include <virtuabotixRTC.h> 
 // Creation of the Real Time Clock Object
 virtuabotixRTC myRTC(6, 7, 8);
@@ -65,7 +65,7 @@ int YEAR;
 int MONTH;
 int DAY;
 
-//SPEAKER VARIABLES
+// Speaker variables
 #define SD_ChipSelectPin 10
 TMRpcm tmrpcm;
 
@@ -73,11 +73,10 @@ char* audio_names[] = {"audio1.wav","audio2.wav","audio3.wav","audio4.wav","audi
 
 void setup() {
   
-  //######################## SD CARD READER ########################
-  // Open serial communications and wait for port to open:
+  // SD card reader 
   Serial.begin(9600);
   while (!Serial) {
-    ;  // wait for serial port to connect. Needed for native USB port only
+    ;  
   }
   Serial.println("Initializing SD card...");
   if (!SD.begin(10)) {
@@ -87,21 +86,19 @@ void setup() {
   }
   Serial.println("initialization done.");
 
-  //######################## RESET DATE AND TIME ########################
-
   ArduinoDateToDisplayDate(__DATE__);
 
   myRTC.setDS1302Time(getSeconds(), getMinutes(), getHours(), NULL, DAY, MONTH, YEAR);
-  //######################## MICROPHONE ########################
+  // Mic
 
-  pinMode(sensorPin, INPUT);  //microphone sensor
+  pinMode(sensorPin, INPUT);  // Microphone sensor
 
-  //######################## SPEAKER ########################
+// Speaker
   tmrpcm.speakerPin = 9;
   tmrpcm.setVolume(5);
   tmrpcm.quality(3);
   
-  // ######################## SD STUFF 
+  // SD STUFF 
   
   //SD.remove("log.txt");
   
@@ -124,18 +121,13 @@ void setup() {
   readLog("log.txt");
 }
 
-
-
-
 void loop() {
   checkSoundSensor();
   //readDecibels();
   //sampleAudio();
 }
 
-
-
-/**this function is the main function of the loop(), it detects the dog's bark and it plays the aduio */
+/**main function of the loop(), it detects the dog's bark and it plays the audio */
 void checkSoundSensor(){
   // Read Sound sensor
 	int sensorData = digitalRead(sensorPin);
@@ -143,16 +135,12 @@ void checkSoundSensor(){
 	// If pin goes LOW, sound is detected
 	if (sensorData == LOW) {
 		
-		// If 25ms have passed since last LOW state, it means that
-		// the clap is detected and not due to any spurious sounds
     unsigned long intensity = millis() - lastEvent;
 		if (intensity > 2500) {
 			Serial.println("Clap detected!");
       Serial.print("Intensity: ");
       Serial.print(intensity);
       writeLog(intensity);
-
-      
 
       yellToDogs();
       //play the audio
@@ -165,9 +153,8 @@ void checkSoundSensor(){
 }
 
 void yellToDogs(){
-  //audio_names
+  // audio_names
   int index = random(0,11);
-
 
   Serial.println(audio_names[index]);
   char* fileName = audio_names[index];
@@ -221,7 +208,6 @@ void writeLog(unsigned long intensity){
     main_file.print(",");
     main_file.print(myRTC.dayofmonth);
 
-
     main_file.print("\n");
   }else {
     Serial.println("Error opening the log file!");
@@ -232,9 +218,8 @@ void writeLog(unsigned long intensity){
 
 void readDecibels(){
   int sensorData = analogRead(sensorPin);
-  //int dB = (sensorData+83.2073) / 11.003; //Convert ADC value to dB using Regression values
   Serial.println(sensorData);
-  //delay(300);
+  // delay(300);
 }
 
 /**
@@ -249,7 +234,7 @@ void sampleAudio(){
 
   if (millisElapsed > SAMPLE_TIME) {
     Serial.println(sampleBufferValue);
-    sampleBufferValue = 0;  //reset the count
+    sampleBufferValue = 0;  // reset the count
     millisLast = millisCurrent;
   }
 }
@@ -272,7 +257,7 @@ void ArduinoDateToDisplayDate(char const *time) {
 
 }
 int getHours(){
-  //10:58:49
+  // 10:58:49
   String hour = getValue(__TIME__, ':', 0);
   return hour.toInt();
 }
