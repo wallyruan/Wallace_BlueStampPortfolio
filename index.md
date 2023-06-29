@@ -35,7 +35,7 @@ My next goal I have is to add modifications to the base kit that will pamper my 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lFGRuzOZDkc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Schematics (didn't have 90% of the items?????)
-! [Headstone Image](im56age.png)
+! [Headstone Image] (im56age.png)
 
 # Code (for the dog bark detection)
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
