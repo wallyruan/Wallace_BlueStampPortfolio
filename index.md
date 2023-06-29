@@ -49,7 +49,7 @@ Here's where you'll put your code. The syntax below places it into a block of co
 TMRpcm tmrpcm; 
 
 // Sound sensor pin
-const int soundSensorPin = A3;
+const int soundSensorPin = 9;
 
 // Threshold value for sound level
 const int threshold = 90;
@@ -71,7 +71,7 @@ int speed = 90;  // higher value, slower notes
 
 void setup() {
   Serial.begin(9600);
-  tmrpcm.speakerPin = 3;  // 
+  tmrpcm.speakerPin = 4;  // 
   SD.begin(4);  // 
 }
 
