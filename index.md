@@ -41,253 +41,60 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
-#include <SPI.h>
+// to long to put here, but you need to #define all the notes
 #include <SD.h>
-#include "TMRpcm.h"
-#include "string.h"
+#include <SPI.h>
+#include <TMRpcm.h>
 
-// SD reader variables
-File main_file;
-// String MAIN_LOG_FILE = "log.txt";
+TMRpcm tmrpcm;  // Create an instance of the TMRpcm library
 
-// Microphone sensor variables
-#define sensorPin A0
-unsigned long lastEvent = 0;
+// Sound sensor pin
+const int soundSensorPin = 9;
 
-const int SAMPLE_TIME = 10;
-unsigned long millisCurrent;
-unsigned long millisLast = 0;
-unsigned long millisElapsed = 0;
+// Threshold value for sound level
+const int threshold = 90;
 
-int sampleBufferValue = 0;    
+// notes
+int melody[] = {
+  NOTE_D4, NOTE_G4, NOTE_FS4, NOTE_A4,
+  NOTE_G4, NOTE_C5, NOTE_AS4, NOTE_A4,
+  END
+};
 
-// Real time clock variables
-#include <virtuabotixRTC.h> 
-// Creation of the Real Time Clock Object
-virtuabotixRTC myRTC(6, 7, 8);
-int YEAR;
-int MONTH;
-int DAY;
+// note durations: 8 = quarter note, 4 = 8th note, etc.
+int noteDurations[] = {       //duration of the notes
+  8, 4, 8, 4,
+  4, 4, 4, 12
+};
 
-// Speaker variables
-#define SD_ChipSelectPin 10
-TMRpcm tmrpcm;
-
-char* audio_names[] = {"audio1.wav","audio2.wav","audio3.wav","audio4.wav","audio5.wav","audio6.wav","audio7.wav","audio8.wav","audio9.wav","audio10.wav","audio11.wav"};
+int speed = 90;  // higher value, slower notes
 
 void setup() {
-  
-  // SD card reader 
   Serial.begin(9600);
-  while (!Serial) {
-    ;  
-  }
-  Serial.println("Initializing SD card...");
-  if (!SD.begin(10)) {
-    Serial.println("initialization failed!");
-    while (1)
-      ;
-  }
-  Serial.println("initialization done.");
-
-  ArduinoDateToDisplayDate(__DATE__);
-
-  myRTC.setDS1302Time(getSeconds(), getMinutes(), getHours(), NULL, DAY, MONTH, YEAR);
-  // Mic
-
-  pinMode(sensorPin, INPUT);  // Microphone sensor
-
-// Speaker
-  tmrpcm.speakerPin = 9;
-  tmrpcm.setVolume(5);
-  tmrpcm.quality(3);
-  
-  // SD STUFF 
-  
-  //SD.remove("log.txt");
-  
-  Serial.println("Checking log.txt");
-  if(!SD.exists("log.txt")){
-    Serial.println("Creating the main log file...");
-    main_file = SD.open("log.txt",FILE_WRITE);
-    if(main_file){
-      main_file.print("day-month-year,hours-minutes-seconds,intensity,hours,day");
-      main_file.print("\n");
-    }else {
-      Serial.println("Error opening the log file!");
-    }
-    main_file.close();
-    Serial.println("File created!");
-  }else{
-    Serial.println("Main log file already exists.");
-  }
-
-  readLog("log.txt");
+  tmrpcm.speakerPin = 3;  // Set the speaker pin to pin 3
+  SD.begin(10);  // Initialize the SD card with the CS pin connected to pin 10
 }
 
 void loop() {
-  checkSoundSensor();
-  //readDecibels();
-  //sampleAudio();
-}
+  // Read the sound level from the sensor
+  int soundLevel = analogRead(soundSensorPin);
 
-/**main function of the loop(), it detects the dog's bark and it plays the audio */
-void checkSoundSensor(){
-  // Read Sound sensor
-	int sensorData = digitalRead(sensorPin);
-
-	// If pin goes LOW, sound is detected
-	if (sensorData == LOW) {
-		
-    unsigned long intensity = millis() - lastEvent;
-		if (intensity > 2500) {
-			Serial.println("Clap detected!");
-      Serial.print("Intensity: ");
-      Serial.print(intensity);
-      writeLog(intensity);
-
-      yellToDogs();
-      //play the audio
-		}
-		
-		// Remember when last event happened
-		lastEvent = millis();
-    delay(200);
-	}
-}
-
-void yellToDogs(){
-  // audio_names
-  int index = random(0,11);
-
-  Serial.println(audio_names[index]);
-  char* fileName = audio_names[index];
-  tmrpcm.play(fileName);
-  delay(5000);
-  tmrpcm.stopPlayback();
-
-  tmrpcm.disable();
-}
-
-void readLog(String file){
-  main_file = SD.open(file);
-  if (main_file) {
-    Serial.println(file+": ");
-
-    // read from the file until there's nothing else in it:
-    while (main_file.available()) {
-      Serial.write(main_file.read());
+  // Check if the sound level is greater than or equal to the threshold
+  if (soundLevel >= threshold) {
+    for (int thisNote = 0; melody[thisNote] != -1; thisNote++) {
+      int noteDuration = speed * noteDurations[thisNote];
+      tone(3, melody[thisNote], noteDuration * 0.95);
+      Serial.println(melody[thisNote]);
+      delay(noteDuration);
+      noTone(3);
     }
-    // close the file:
-    main_file.close();
-  } else {
-    // if the file didn't open, print an error:
-    Serial.println("error opening the file ");
-  }
-}
-void writeLog(unsigned long intensity){
-  myRTC.updateTime();
-  
-  main_file = SD.open("log.txt",FILE_WRITE);
-  if(main_file){
-    //day-month-year,hours-minutes-seconds,intensity,hours,day
-    main_file.print(myRTC.dayofmonth);
-    main_file.print("-");
-    main_file.print(myRTC.month);
-    main_file.print("-");
-    main_file.print(myRTC.year);
-    main_file.print(",");
 
-    main_file.print(myRTC.hours);
-    main_file.print("-");
-    main_file.print(myRTC.minutes);
-    main_file.print("-");
-    main_file.print(myRTC.seconds);
-    main_file.print(",");
-
-    main_file.print(intensity);
-    main_file.print(",");
-    
-    main_file.print(myRTC.hours);
-    main_file.print(",");
-    main_file.print(myRTC.dayofmonth);
-
-    main_file.print("\n");
-  }else {
-    Serial.println("Error opening the log file!");
-  }
-  main_file.close();
-  delay(300);
-}
-
-void readDecibels(){
-  int sensorData = analogRead(sensorPin);
-  Serial.println(sensorData);
-  // delay(300);
-}
-
-/**
-this function can be used with the arduino serial plotter to visualize the audio*/
-void sampleAudio(){
-  millisCurrent = millis();
-  millisElapsed = millisCurrent-millisLast;
-
-  if(digitalRead(sensorPin)==LOW){
-    sampleBufferValue++;
-  }
-
-  if (millisElapsed > SAMPLE_TIME) {
-    Serial.println(sampleBufferValue);
-    sampleBufferValue = 0;  // reset the count
-    millisLast = millisCurrent;
-  }
-}
-
-void ArduinoDateToDisplayDate(char const *time) { 
-    char s_month[5];
-    int month, day, year;
-    static const char month_names[] = "JanFebMarAprMayJunJulAugSepOctNovDec";
-
-    sscanf(time, "%s %d %d", s_month, &day, &year);
-
-    month = (strstr(month_names, s_month)-month_names)/3;
-
-    String monthText = month < 10 ? "0" + String(month) : String(month);
-    String dayText = day < 10 ? "0" + String(day) : String(day);
-    int date[3];
-    YEAR = year;
-    MONTH = monthText.toInt();
-    DAY = dayText.toInt();
-
-}
-int getHours(){
-  // 10:58:49
-  String hour = getValue(__TIME__, ':', 0);
-  return hour.toInt();
-}
-int getMinutes(){
-  String minutes = getValue(__TIME__, ':', 1);
-  return minutes.toInt();
-}
-int getSeconds(){
-  String seconds = getValue(__TIME__, ':', 2);
-  return seconds.toInt();
-}
-
-String getValue(String data, char separator, int index)
-{
-    int found = 0;
-    int strIndex[] = { 0, -1 };
-    int maxIndex = data.length() - 1;
-
-    for (int i = 0; i <= maxIndex && found <= index; i++) {
-        if (data.charAt(i) == separator || i == maxIndex) {
-            found++;
-            strIndex[0] = strIndex[1] + 1;
-            strIndex[1] = (i == maxIndex) ? i+1 : i;
-        }
+    // Play the WAV file from the SD card
+    tmrpcm.play("perfect.wav"); 
+    while (tmrpcm.isPlaying()) {
+      // Wait for the WAV file to finish playing
     }
-    return found > index ? data.substring(strIndex[0], strIndex[1]) : "";
+  }
 }
 
 ```
