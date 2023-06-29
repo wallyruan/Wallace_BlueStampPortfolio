@@ -105,7 +105,6 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | Link |
 |ELEGOO Smart Robot|Base Kit|80$| <a href="https://www.amazon.com/ELEGOO-Tracking-Ultrasonic-Intelligent-Educational/dp/B07KPZ8RSZ/ref=sr_1_6?crid=3ITT6Z3NJ6QQ6&keywords=elegoo+kit&qid=1684951773&sprefix=elegoo+ki%2Caps%2C164&sr=8-6"> Link </a> |
 | Arduino | Extra for Sensors | 17$ | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 | SD Card reader module | Read/write files | 6.5$ | <a href="https://www.amazon.com/Maxmoral-Storage-Expansion-Interface-Adapter/dp/B07S3F4BLN/ref=sr_1_2?crid=1IWTVZPIHUDI2&keywords=Modulo+Micro+SD+card+mini+TF+card+reader+modulo+SPI+%28Arduino+Compatibile%29&qid=1686860460&sprefix=modulo+micro+sd+card+mini+tf+card+reader+modulo+spi+arduino+compatibile+%2Caps%2C172&sr=8-2"> Link </a> |
