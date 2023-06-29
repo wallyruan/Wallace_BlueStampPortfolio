@@ -71,7 +71,7 @@ int speed = 90;  // higher value, slower notes
 
 void setup() {
   Serial.begin(9600);
-  tmrpcm.speakerPin = 9;  // 
+  tmrpcm.speakerPin = 3;  // 
   SD.begin(4);  // 
 }
 
