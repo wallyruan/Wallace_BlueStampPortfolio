@@ -41,12 +41,12 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
-// to long to put here, but you need to #define all the notes
+// too long to put here, but you need to #define all the notes. e.g. #define NOTE_B0 31
 #include <SD.h>
 #include <SPI.h>
 #include <TMRpcm.h>
 
-TMRpcm tmrpcm;  // Create an instance of the TMRpcm library
+TMRpcm tmrpcm; 
 
 // Sound sensor pin
 const int soundSensorPin = 9;
@@ -71,8 +71,8 @@ int speed = 90;  // higher value, slower notes
 
 void setup() {
   Serial.begin(9600);
-  tmrpcm.speakerPin = 3;  // Set the speaker pin to pin 3
-  SD.begin(10);  // Initialize the SD card with the CS pin connected to pin 10
+  tmrpcm.speakerPin = 9;  // 
+  SD.begin(4);  // 
 }
 
 void loop() {
@@ -92,7 +92,7 @@ void loop() {
     // Play the WAV file from the SD card
     tmrpcm.play("perfect.wav"); 
     while (tmrpcm.isPlaying()) {
-      // Wait for the WAV file to finish playing
+      // Wait for WAV file to finish playing
     }
   }
 }
