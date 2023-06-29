@@ -49,7 +49,7 @@ Here's where you'll put your code. The syntax below places it into a block of co
 TMRpcm tmrpcm; 
 
 // Sound sensor pin
-const int soundSensorPin = 9;
+const int soundSensorPin = A3;
 
 // Threshold value for sound level
 const int threshold = 90;
