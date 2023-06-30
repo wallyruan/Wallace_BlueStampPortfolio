@@ -115,11 +115,3 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Extra micro servo | Produces torque and velocity for the rover | 9$ | <a href="https://www.amazon.com/Micro-Servos-Helicopter-Airplane-Controls/dp/B07MLR1498/ref=sr_1_7?crid=M3UTWSUM0J38&keywords=servo&qid=1687208050&sprefix=serv%2Caps%2C135&sr=8-7"> Link </a> |
 | Magnetic speaker | Plays my wav file / soothing sound | 9$ | <a href="https://www.amazon.com/gp/product/B0177ABRQ6/ref=ppx_yo_dt_b_asin_image_o00_s00?ie=UTF8&psc=1"> Link </a> |
 | Connector | Battery for the bark detector | 7$ | <a href="https://www.amazon.com/Battery-ZRM-Plastic-I-Type-Connector/dp/B0B689YYM5/ref=sr_1_25?crid=2WPTHBLPA331V&keywords=9v+with+male&qid=1687582073&sprefix=9v+with+male%2Caps%2C136&sr=8-25"> Link </a> |
-
-# Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
-- [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
-- [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
-
-To watch the BSE tutorial on how to create a portfolio, click here.
