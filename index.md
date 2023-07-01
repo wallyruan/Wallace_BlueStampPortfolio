@@ -117,7 +117,7 @@ void loop() {
 }
 
 void sendNotification(const char* message) {
-  pushover.setDevice("your_iphone_device_name"); // Optional, specify the device name if you have multiple devices registered
+  pushover.setDevice("iphone10");
   pushover.send(message);
 
   Serial.println("Notification sent!");
