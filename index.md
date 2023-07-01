@@ -45,8 +45,10 @@ Here's where you'll put your code. The syntax below places it into a block of co
 #include <SD.h>
 #include <SPI.h>
 #include <TMRpcm.h>
+#include <WiFi.h>
+#include <Pushover.h>
 
-TMRpcm tmrpcm; 
+TMRpcm tmrpcm;
 
 // Sound sensor pin
 const int soundSensorPin = 9;
@@ -69,10 +71,24 @@ int noteDurations[] = {       //duration of the notes
 
 int speed = 90;  // higher value, slower notes
 
+WiFiClient client;
+Pushover pushover("uvbkxyqbw5fwcf224jkidn628yvd3s", "a2rqsg4ebv1wsnnsnmbwb2wuo4dpa1");
+
 void setup() {
   Serial.begin(9600);
-  tmrpcm.speakerPin = 4;  // 
-  SD.begin(4);  // 
+  tmrpcm.speakerPin = 4;
+  SD.begin(4);
+
+  // Connect to WiFi network
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+
+  // Set up the sound sensor pin as input
+  pinMode(soundSensorPin, INPUT);
 }
 
 void loop() {
@@ -90,13 +106,22 @@ void loop() {
     }
 
     // Play the WAV file from the SD card
-    tmrpcm.play("perfect.wav"); 
+    tmrpcm.play("perfect.wav");
     while (tmrpcm.isPlaying()) {
       // Wait for WAV file to finish playing
     }
+
+    // Send notification to iPhone
+    sendNotification("dog bark");
   }
 }
 
+void sendNotification(const char* message) {
+  pushover.setDevice("your_iphone_device_name"); // Optional, specify the device name if you have multiple devices registered
+  pushover.send(message);
+
+  Serial.println("Notification sent!");
+}
 ```
 
 # Bill of Materials
