@@ -8,7 +8,13 @@
 ![Headstone Image](IMG_2871.jpg)
   
 # Final Milestone
-here
+For my final modification, I created a machine that when my dog barks, the machine will detect it and then play a sound that gets his attention. It will then communicate to my dog that it’s time for treats. The machine will then send me a notification that my dog barked, and I will activate the treat dispenser. (Quick side note, I didn’t make it completely autonomous in case my dog barked too many times). 
+
+This machine consists of three key parts. The sound sensor, the SD card, and the speaker. When sound waves approach the diaphragm (a part of the sound sensor), it vibrates and then is converted into an electrical signal. In my case, it first tells the speaker to play the notes, and then tells the SD card to play the wav file that I put in its storage. 
+
+After finishing the final milestone, I learned that engineering is about making mistakes and learning from them. The problem I had with the SD card wasn’t an easy fix; it took lots of research and lots of coding to find the source of the problem and then actually solving the problem. However, if I were to solve the problem again, I would know exactly what to do. I hate to be that one teacher, but mistakes are good.
+
+This milestone isn’t the end of my engineering journey. I plan on adding more modifications to “Wall-Y,” and making more machines that enhance me and my family’s quality of life.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mbKwfvyw9kE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
