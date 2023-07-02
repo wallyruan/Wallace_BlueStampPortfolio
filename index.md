@@ -36,7 +36,6 @@ My next goal I have is to add modifications to the base kit that will pamper my 
 ![Headstone Image](i9898age.png)
 
 # Code (for the dog bark detection)
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
 // too long to put here, but you need to #define all the notes. e.g. #define NOTE_B0 31
