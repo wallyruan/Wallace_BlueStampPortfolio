@@ -1,11 +1,9 @@
-# WALL-Y - your dog's bff
+# WALL-Y; your dog's bff
 "WALL-Y," which (the name) is inspired by Disney's "WALL-E" and my nick name "Wally," is a robot that moniters and takes care of my dog. It plays a calming sound whenever he barks, tells him that it's time to eat treats, and then feeds him delicious food.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Wallace R | Alameda Science & Technology Institue | General Engineering | Incoming Junior
-
-**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](IMG_2871.jpg)
   
