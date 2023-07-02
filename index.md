@@ -122,9 +122,6 @@ void sendNotification(const char* message) {
 ```
 
 # Bill of Materials
-Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
-
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 |ELEGOO Smart Robot|Base Kit|80$| <a href="https://www.amazon.com/ELEGOO-Tracking-Ultrasonic-Intelligent-Educational/dp/B07KPZ8RSZ/ref=sr_1_6?crid=3ITT6Z3NJ6QQ6&keywords=elegoo+kit&qid=1684951773&sprefix=elegoo+ki%2Caps%2C164&sr=8-6"> Link </a> |
