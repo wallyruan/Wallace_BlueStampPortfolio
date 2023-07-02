@@ -3,7 +3,7 @@
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Wallace R | Alameda Science & Technology Institue | General Engineering | Incoming Junior
+| Wallace R | Alameda Science & Technology Institue | General Engineering | Incoming Junior 
 
 ![Headstone Image](IMG_2871.jpg)
   
